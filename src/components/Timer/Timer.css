@@ -1,4 +1,22 @@
-
 .timer-container {
     color: white;
+    border: 4px solid #f8f9fa; /* bright offwhite */
+    border-radius: 0px;
+    border-image: none;
+    width: 55%;
+    height: 600px;
+    text-align: center;
+    margin: auto;
+    text-align: center;
+    margin: auto;
+    transition: box-shadow .2s ease-in;
+}
+
+.timer-container:hover {
+    box-shadow:
+        0 0 12px 2px #ffffff;
+}
+
+.timer-display {
+    font-size: 7rem;
 }
