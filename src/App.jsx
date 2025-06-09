@@ -1,4 +1,5 @@
-
+import NameCard from './components/NameCard/NameCard'
+import Timer from './components/Timer/Timer'
 import './App.css'
 
 function App() {
@@ -6,7 +7,8 @@ function App() {
 
   return (
     <>
-     
+     <NameCard></NameCard>
+     <Timer></Timer>
     </>
   )
 }
