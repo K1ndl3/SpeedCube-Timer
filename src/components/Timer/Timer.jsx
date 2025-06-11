@@ -8,33 +8,41 @@ function Timer() {
     const intervalRef = useRef(null);
     const [timerState, setTimerState] = useState('idle');
 
+
     useEffect(() => {
+        
         const handleKeyDown = (e) => {
-            if (timerState =='stop' && e.code === 'Space') {
-                setTimerState('idle');
+            if (e.code === 'Space' && isRunning == false && timerState === 'idle') {
+                setTimerState('ready');
+            }
+
+            if (e.code === 'Space' && isRunning == true && timerState === 'running') {
+                setIsRunning(false);
+                setTimerState('stopped');
+            }
+
+            if (e.code === 'Space' && isRunning == false && timerState === 'stopped') {
+                setElapsedTime(0);
+                setTimerState('ready');
             }
         }
 
         const handleKeyUp = (e) => {
-            if (e.code ==='Space' && timerState === 'idle') {
-                setIsRunning(prev => !prev);
-                setTimerState('active');
+            if (e.code === 'Space' && isRunning == false && timerState === 'ready') {
+                setIsRunning(true);
+                setTimerState("running");
             }
-
-            if (e.code === 'Space' && timerState === 'active') {
-                setIsRunning(false);
-                setTimerState('stop');
-            }
-        };
-
-
-        window.addEventListener('keydown', handleKeyDown)
-        window.addEventListener('keyup', handleKeyUp);
-        return () => {window.removeEventListener('keyup', handleKeyUp);
-                      window.removeEventListener('keydown', handleKeyDown);
         }
 
-    },[])
+        window.addEventListener('keydown', handleKeyDown);
+        window.addEventListener('keyup', handleKeyUp);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+            window.removeEventListener('keyup', handleKeyUp);
+        }
+
+    },[timerState])
 
     useEffect(() => {
         if (isRunning) {
@@ -54,17 +62,16 @@ function Timer() {
     const centiseconds = String(Math.floor((elapsedTime % 1000) / 10)).padStart(2, '0');
 
     let color = 'white';
-    if (timerState === 'idle') color = 'red';
-    if (timerState === 'active') color = 'green';
-    if (timerState === 'stop') color = 'white';
+    if (timerState === 'idle') color = 'white';
+    if (timerState === 'ready') color = 'red';
+    if (timerState === 'running') color = 'green';
+    if (timerState === 'stopped') color = 'white'; 
 
     return (
         <div className="timer-container">
             <div className="timer-display" style={{color}}>
-                <span>{minutes}</span>
-                <span>:</span>
                 <span>{seconds}</span>
-                <span>:</span>
+                <span>.</span>
                 <span>{centiseconds}</span>
             </div>
         </div>

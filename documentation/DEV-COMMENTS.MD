@@ -58,3 +58,8 @@ Introduce a state variable (e.g., `timerState`) with the following possible valu
 3. `running` — timer is active and collecting time (green)
 4. `stopped` — timer has stopped and is ready for data export (red)
 
+## Solution and Reflection
+
+I implemented the solution using 2 useEffect hooks that control the timer color/state and elapsed time functionality
+
+
