@@ -43,7 +43,7 @@ There are technically **4 main components** in this project:
 
 ## 🛑 Roadblock
 
-I’m currently implementing the intended behavior of the timer related to spacebar interactions:
+## Implementing the intended behavior of the timer related to spacebar interactions:
 
 - When the user **holds** the spacebar, the timer turns **red** (primed state).
 - When the user **releases** the spacebar, the timer starts and turns **green**.
@@ -60,6 +60,10 @@ Introduce a state variable (e.g., `timerState`) with the following possible valu
 
 ## Solution and Reflection
 
-I implemented the solution using 2 useEffect hooks that control the timer color/state and elapsed time functionality
+I implemented the solution using 2 useEffect hooks that control the timer color/state and elapsed time functionality.
+Also, by having inline style, I can directly control the color of the timer display based on its state. Maybe there is a way
+control the color while separating the style and jsx but I do not know how to so.
+#### ROADBLOCK RESOLVED
+
 
 
