@@ -41,15 +41,20 @@ There are technically **4 main components** in this project:
   
   #### Timer Display and Managing State of Timer
 
-  ** ROADBLOCK **
-  - The current issue I am having is to create a certain intended behavior of the timer
-  - when the user hold down space bar to start the timer, the timer color will be red to indicate it is ready to start
-  - once the space bar is let go, the timer will then start (green)
-  - once the timer has start and when the user press spacebar again, the timer will stop. (red)
+## 🛑 Roadblock
+
+I’m currently implementing the intended behavior of the timer related to spacebar interactions:
+
+- When the user **holds** the spacebar, the timer turns **red** (primed state).
+- When the user **releases** the spacebar, the timer starts and turns **green**.
+- Pressing the spacebar again stops the timer and turns it **red** (stopped).
   
- ** IDEAS FOR SOLUTION **
- -  I will use a state variable to keep track of the timer
-    1) ready - when spacebar is down aka timer is primed to start(red)
-    2) running - timer is running and is collecting time (green)
-    3) stopped - the time is shown and value is ready to be exported to databse (red)
-    4) idle - default state (white)
+## 💡 Proposed Solution
+
+Introduce a state variable (e.g., `timerState`) with the following possible values:
+
+1. `idle` — default state, nothing is happening (white)
+2. `ready` — spacebar is held, timer is primed to start (red)
+3. `running` — timer is active and collecting time (green)
+4. `stopped` — timer has stopped and is ready for data export (red)
+
