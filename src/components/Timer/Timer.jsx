@@ -1,18 +1,16 @@
+import { useState } from 'react'
 import './Timer.css'
 
 function Timer() {
 
-    const timeParts = "00:00:00".split(":");
+    const [isRunning, setIsRunning] = useState(false);
+
+    
 
     return(<>
     <div className="timer-container">
         <div className="timer-display">
-            {timeParts.map((val, index)  => (
-                <span className='timer-display-digits' key={index}>
-                    {val}
-                    {index < timeParts.length - 1 && <span>:</span>}
-                    </span>
-           ))}
+            <span>00:00:00</span>
         </div>
     </div>
     </>)
