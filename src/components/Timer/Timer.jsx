@@ -1,17 +1,22 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useContext } from 'react'
 import './Timer.css'
 import Scrambo from 'scrambo';
+import SolveContext from '../SolveContext/SolveContext';
 
 
 function Timer() {
 
-
+    ////////////////////////////////////////////////////// STATES ///////////////////////
     const [isRunning, setIsRunning] = useState(false);
     const [elapsedTime, setElapsedTime] = useState(0);
-    const intervalRef = useRef(null);
     const [timerState, setTimerState] = useState('idle');
     const [randScramble, setRandScramble] = useState('');
-
+    const [currentTime, setCurrentTime] = useState(0);
+    ////////////////////////////////////////////////////// REFS /////////////////////////
+    const intervalRef = useRef(null);
+    ////////////////////////////////////////////////////// CONTEXT //////////////////////
+    const [solveArray, setSolveArray] = useContext(SolveContext);
+    ////////////////////////////////////////////////////// FUNCTIONS ////////////////////
     useEffect(() => {
         const scrambo = new Scrambo();
         setRandScramble(scrambo.type('333').get()[0]);
@@ -21,33 +26,37 @@ function Timer() {
     useEffect(() => {
         
         const handleKeyDown = (e) => {
-            if (e.code === 'Space' && isRunning == false && timerState === 'idle') {
+            if (e.code === 'Space' && isRunning === false && timerState === 'idle') {
                 setTimerState('ready');
             }
 
-            if (e.code === 'Space' && isRunning == true && timerState === 'running') {
+            if (e.code === 'Space' && isRunning === true && timerState === 'running') {
                 setIsRunning(false);
                 setTimerState('stopped');
-
+                
                 const scrambo = new Scrambo();
                 setRandScramble(scrambo.type('333').get()[0]);
             }
-
-            if (e.code === 'Space' && isRunning == false && timerState === 'stopped') {
+            
+            if (e.code === 'Space' && isRunning === false && timerState === 'stopped') {
                 setElapsedTime(0);
                 setTimerState('ready');
             }
-        }
-
+        };
+        
         const handleKeyUp = (e) => {
+            if (timerState == 'stopped') {
+                setSolveArray((prev) => [...prev, elapsedTime/1000]);
+
+            }
             if (e.code === 'Space' && isRunning == false && timerState === 'ready') {
                 setIsRunning(true);
                 setTimerState("running");
             }
         }
 
-        window.addEventListener('keydown', handleKeyDown);
         window.addEventListener('keyup', handleKeyUp);
+        window.addEventListener('keydown', handleKeyDown);
 
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
@@ -77,12 +86,21 @@ function Timer() {
     if (timerState === 'running') color = 'green';
     if (timerState === 'stopped') color = 'white'; 
 
+    ////////////////////////////////////////////////////// HTML ////////////////////
+
     return (
         <div className="timer-container">
             <div className="timer-display" style={{color}}>
                 <span>{seconds}</span>
                 <span>.</span>
                 <span>{centiseconds}</span>
+            </div>
+            <div className="test-context">
+                <ul>
+                    {solveArray.map((value, index) => (
+                        <li key={index}>Solve {index + 1}: {value.toFixed(2)} seconds</li>
+                    ))}
+                </ul>
             </div>
             <div className="scramble">{randScramble }</div>
         </div>
