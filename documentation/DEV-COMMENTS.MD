@@ -35,18 +35,29 @@ There are technically **4 main components** in this project:
 ### 4) 2D Display of Scrambled Cube
 - Visual representation of the scrambled cube (2D projection)
 
+# Format of DEVELOPEMENT ROADBLOCKS AND SOLUTIONS
+   ## Feature
+   ## Intended Behavior/Implementation
+   ## 🛑 Roadblock
+   ## 💡 Proposed Solution
+   ## Solution and Reflection
+   #### ROADBLOCK RESOLUTION (RESOLVED/NOT RESOVLED)
+
 
 ## DEVELOPEMENT ROADBLOCKS AND SOLUTIONS:
   
 ## Timer Display and Managing State of Timer
-
-## 🛑 Roadblock
 
 ## Implementing the intended behavior of the timer related to spacebar interactions:
 
 - When the user **holds** the spacebar, the timer turns **red** (primed state).
 - When the user **releases** the spacebar, the timer starts and turns **green**.
 - Pressing the spacebar again stops the timer and turns it **red** (stopped).
+
+## 🛑 Roadblock
+
+- Having to manage multiple states becomes **confusing**\
+- I was honestly overwhelmed
   
 ## 💡 Proposed Solution
 
@@ -62,13 +73,13 @@ Introduce a state variable (e.g., `timerState`) with the following possible valu
 I implemented the solution using 2 useEffect hooks that control the timer color/state and elapsed time functionality.
 Also, by having inline style, I can directly control the color of the timer display based on its state. Maybe there is a way
 control the color while separating the style and jsx but I do not know how to so.
+#### ROADBLOCK RESOLVED ✔️
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#### ROADBLOCK RESOLVED ✔️
 
-## Storing and Managing Solve History
+## Storing and Managing Solve History (On Hold)
 
 ### 🛑 Roadblock
 
@@ -98,4 +109,27 @@ Next, I will refactor this into a custom `SolvesContext` provider to future-proo
 This is a chance to learn more about global state and better structure growing applications.  
 Additionally, this lays the foundation for integrating authentication, persistent storage, and advanced filtering later.
 
+- The tutorials are getting pretty annoying
+- I think the best course of action right now is to learn while I am building the feature
+- think we need to have a pause on this feature for now and do the randomly generated scramble first
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+## Feature
+  - Display a randomly generated, **WCA-compliant** 3x3 scramble 
+## Intended Behavior/Implementation
+  - Scramble is displayed under the time
+## 🛑 Roadblock
+  - Was not able to make **cubejs** work
+    - Tried using method recommended by chatgt
+    - Used `cubejs().scramble()` but `scramble()` was not recognized
+    - Tried `new cubejs()` and `new Cube()` but did not work
+## 💡 Proposed Solution
+  - Look for a new alternative
+## Solution and Reflection
+  - Looked at **scrambo**
+  - In hindsight, I should have looked for a better alternative sooner
+  - Wasted a lot of time trying to look at error codes and going in circle
+    - trying the unsuccessful codes over and over again
+  - Know when to backtrack and pick a different path
+#### ROADBLOCK RESOLVED ✔️

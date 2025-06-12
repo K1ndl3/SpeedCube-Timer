@@ -1,12 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
 import './Timer.css'
+import Scrambo from 'scrambo';
+
 
 function Timer() {
+
 
     const [isRunning, setIsRunning] = useState(false);
     const [elapsedTime, setElapsedTime] = useState(0);
     const intervalRef = useRef(null);
     const [timerState, setTimerState] = useState('idle');
+    const [randScramble, setRandScramble] = useState('');
+
+    useEffect(() => {
+        const scrambo = new Scrambo();
+        setRandScramble(scrambo.type('333').get()[0]);
+    }, []);
 
 
     useEffect(() => {
@@ -19,6 +28,9 @@ function Timer() {
             if (e.code === 'Space' && isRunning == true && timerState === 'running') {
                 setIsRunning(false);
                 setTimerState('stopped');
+
+                const scrambo = new Scrambo();
+                setRandScramble(scrambo.type('333').get()[0]);
             }
 
             if (e.code === 'Space' && isRunning == false && timerState === 'stopped') {
@@ -72,6 +84,7 @@ function Timer() {
                 <span>.</span>
                 <span>{centiseconds}</span>
             </div>
+            <div className="scramble">{randScramble }</div>
         </div>
     )
 }
