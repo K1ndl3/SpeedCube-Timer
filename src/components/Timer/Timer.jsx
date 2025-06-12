@@ -56,8 +56,6 @@ function Timer() {
         return () => clearInterval(intervalRef.current);
     },[isRunning])
     
-
-    const minutes = String(Math.floor(elapsedTime / 60000)).padStart(2, '0');
     const seconds = String(Math.floor((elapsedTime % 60000) / 1000)).padStart(2, '0');
     const centiseconds = String(Math.floor((elapsedTime % 1000) / 10)).padStart(2, '0');
 
