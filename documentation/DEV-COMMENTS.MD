@@ -36,7 +36,7 @@ There are technically **4 main components** in this project:
 - Visual representation of the scrambled cube (2D projection)
 
 # Format of DEVELOPEMENT ROADBLOCKS AND SOLUTIONS
-   ## Feature
+   # Feature
    ## Intended Behavior/Implementation
    ## 🛑 Roadblock
    ## 💡 Proposed Solution
@@ -45,7 +45,7 @@ There are technically **4 main components** in this project:
 
 # DEVELOPEMENT ROADBLOCKS AND SOLUTIONS:
   
-## Timer Display and Managing State of Timer
+# Timer Display and Managing State of Timer
 
 ## Implementing the intended behavior of the timer related to spacebar interactions:
 
@@ -74,7 +74,7 @@ Also, by having inline style, I can directly control the color of the timer disp
 control the color while separating the style and jsx but I do not know how to so.
 #### ROADBLOCK RESOLVED ✔️
 
-## Storing and Managing Solve History (On Hold)
+# Storing and Managing Solve History (On Hold)
 
 ### 🛑 Roadblock
 
@@ -108,7 +108,7 @@ Additionally, this lays the foundation for integrating authentication, persisten
 - I think the best course of action right now is to learn while I am building the feature
 - think we need to have a pause on this feature for now and do the randomly generated scramble first
 
-## Feature
+# Feature
   - Display a randomly generated, **WCA-compliant** 3x3 scramble 
 ## Intended Behavior/Implementation
   - Scramble is displayed under the time
