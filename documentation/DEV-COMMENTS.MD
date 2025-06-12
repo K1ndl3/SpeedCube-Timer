@@ -45,7 +45,7 @@ There are technically **4 main components** in this project:
 
 # DEVELOPEMENT ROADBLOCKS AND SOLUTIONS:
   
-# Timer Display and Managing State of Timer
+# 1) Timer Display and Managing State of Timer
 
 ## Implementing the intended behavior of the timer related to spacebar interactions:
 
@@ -72,11 +72,11 @@ Introduce a state variable (e.g., `timerState`) with the following possible valu
 I implemented the solution using 2 useEffect hooks that control the timer color/state and elapsed time functionality.
 Also, by having inline style, I can directly control the color of the timer display based on its state. Maybe there is a way
 control the color while separating the style and jsx but I do not know how to so.
-#### ROADBLOCK RESOLVED ✔️
+#### ROADBLOCK RESOLUTION (RESOLVED) 🟣✔️
 
-# Storing and Managing Solve History (On Hold)
+# 2) Storing and Managing Solve History (On Hold)
 
-### 🛑 Roadblock
+## 🛑 Roadblock
 
 Implementing a reliable system to **store and access past solves** consistently across components:
 
@@ -87,7 +87,7 @@ Implementing a reliable system to **store and access past solves** consistently 
   - Metadata (scramble, timestamp, comments, flags like DNF)
 - Long-term goal: make this scalable for **user accounts, cloud sync, and database integration**.
 
-### 💡 Proposed Solution
+## 💡 Proposed Solution
 
 To ensure accessibility and scalability, I plan to use **React Context** to manage global solve history:
 
@@ -97,7 +97,7 @@ To ensure accessibility and scalability, I plan to use **React Context** to mana
 
 **Alternative**: use lifted `useState` in `App.jsx` if Context proves too complex. This fallback would allow progress while still supporting live stats and updates.
 
-### ✅ Solution and Reflection
+## Solution and Reflection
 
 I began with a basic `useState` implementation and successfully tracked solves across components.  
 Next, I will refactor this into a custom `SolvesContext` provider to future-proof the app.  
@@ -108,7 +108,8 @@ Additionally, this lays the foundation for integrating authentication, persisten
 - I think the best course of action right now is to learn while I am building the feature
 - think we need to have a pause on this feature for now and do the randomly generated scramble first
 
-# Generating Scramble
+# 3) Generating Scramble
+
   - Display a randomly generated, **WCA-compliant** 3x3 scramble 
 ## Intended Behavior/Implementation
   - Scramble is displayed under the time
@@ -125,4 +126,4 @@ Additionally, this lays the foundation for integrating authentication, persisten
   - Wasted a lot of time trying to look at error codes and going in circle
     - trying the unsuccessful codes over and over again
   - Know when to backtrack and pick a different path
-#### ROADBLOCK RESOLVED ✔️
+#### ROADBLOCK RESOLUTION (RESOLVED) 🟣✔️
