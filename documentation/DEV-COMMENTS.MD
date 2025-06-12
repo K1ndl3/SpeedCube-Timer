@@ -108,7 +108,7 @@ Additionally, this lays the foundation for integrating authentication, persisten
 - I think the best course of action right now is to learn while I am building the feature
 - think we need to have a pause on this feature for now and do the randomly generated scramble first
 
-# Feature
+# Generating Scramble
   - Display a randomly generated, **WCA-compliant** 3x3 scramble 
 ## Intended Behavior/Implementation
   - Scramble is displayed under the time
