@@ -43,8 +43,7 @@ There are technically **4 main components** in this project:
    ## Solution and Reflection
    #### ROADBLOCK RESOLUTION (RESOLVED/NOT RESOVLED)
 
-
-## DEVELOPEMENT ROADBLOCKS AND SOLUTIONS:
+# DEVELOPEMENT ROADBLOCKS AND SOLUTIONS:
   
 ## Timer Display and Managing State of Timer
 
@@ -74,10 +73,6 @@ I implemented the solution using 2 useEffect hooks that control the timer color/
 Also, by having inline style, I can directly control the color of the timer display based on its state. Maybe there is a way
 control the color while separating the style and jsx but I do not know how to so.
 #### ROADBLOCK RESOLVED ✔️
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 ## Storing and Managing Solve History (On Hold)
 
@@ -112,8 +107,6 @@ Additionally, this lays the foundation for integrating authentication, persisten
 - The tutorials are getting pretty annoying
 - I think the best course of action right now is to learn while I am building the feature
 - think we need to have a pause on this feature for now and do the randomly generated scramble first
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ## Feature
   - Display a randomly generated, **WCA-compliant** 3x3 scramble 
