@@ -1,5 +1,6 @@
 import NameCard from './components/NameCard/NameCard'
 import Timer from './components/Timer/Timer'
+import StatsBar from './components/StatsBar/StatsBar'
 import SolveContext from './components/SolveContext/SolveContext'
 import { useContext, useState } from 'react'
 import './App.css'
@@ -7,11 +8,12 @@ import './App.css'
 
 function App() {
   
-  const [solveArray, setSolveArray] = useState([9.1, 10.53, 11.03, 9.62, 13.96]);
+  const [solveArray, setSolveArray] = useState([]);
 
   return (
     <SolveContext.Provider value={[solveArray, setSolveArray]}>
       <>
+        <StatsBar></StatsBar>
         <NameCard></NameCard>
         <Timer></Timer>
       </>

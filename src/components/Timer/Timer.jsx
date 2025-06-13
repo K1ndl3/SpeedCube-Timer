@@ -45,7 +45,8 @@ function Timer() {
         };
         
         const handleKeyUp = (e) => {
-            if (timerState == 'stopped') {
+
+            if (timerState == 'stopped' && e.code === 'Space') {
                 setSolveArray((prev) => [...prev, elapsedTime/1000]);
 
             }
@@ -96,11 +97,6 @@ function Timer() {
                 <span>{centiseconds}</span>
             </div>
             <div className="test-context">
-                <ul>
-                    {solveArray.map((value, index) => (
-                        <li key={index}>Solve {index + 1}: {value.toFixed(2)} seconds</li>
-                    ))}
-                </ul>
             </div>
             <div className="scramble">{randScramble }</div>
         </div>

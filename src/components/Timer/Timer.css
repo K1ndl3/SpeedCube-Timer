@@ -1,10 +1,12 @@
+@import "@fontsource/dm-sans";
+
 .timer-container {
     color: white;
     border: 2px solid #f8f9fa; /* bright offwhite */
     border-radius: 10px;
     border-image: none;
     width: 55%;
-    height: 600px;
+    height: 500px;
     text-align: center;
     margin: auto;
     text-align: center;
@@ -25,6 +27,6 @@
 .scramble {
     color: red;
     font-size: 1.5rem;
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
