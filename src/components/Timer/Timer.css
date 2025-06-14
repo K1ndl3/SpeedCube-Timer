@@ -30,3 +30,19 @@
     margin-top: 150px;
 }
 
+.cube-viewer {
+    position: absolute;
+    right: 10px;
+    top: 160px;
+    border: solid;
+    border-radius: 10px;
+    border: 4px white solid;
+    pointer-events: auto;
+    transition: box-shadow .2s ease-in;
+}
+
+.cube-viewer:hover {
+    box-shadow:
+        0 0 12px 2px #ffffff;
+}
+

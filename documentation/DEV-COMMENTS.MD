@@ -165,7 +165,7 @@ The main roadblock in this feature was mainly the render order of operation and 
    ## Solution and Reflection
    #### ROADBLOCK RESOLUTION (RESOLVED/NOT RESOVLED)
 
-  # 5) Display Cube State After Scramble
+  # 5) Display Cube State After Scramblerun 
    ## Intended Behavior/Implementation
    ## 🛑 Roadblock
    ## 💡 Proposed Solution
