@@ -152,11 +152,21 @@ The main roadblock in this feature was mainly the render order of operation and 
   - Know when to backtrack and pick a different path
 #### ROADBLOCK RESOLUTION (RESOLVED) 🟣✔️
 
-# 4) History of Solves Component
+# 4) History of Solves Component (On Hold)
    ## Intended Behavior/Implementation
    - create a component that will display a certain amount of pass solves(maybe 20?)
    - display the 4 main stats
-   - maybe 
+   ## 🛑 Roadblock
+   1) I dont know how to access the last 3,5, or 12 elements within a useState to create an average
+   2) Also worth noting that for ao12 and ao5, the best and worst solves are excluded in the average calculation 
+   ## 💡 Proposed Solution
+   1) I learned how to use slice and reduce to retrieve the last n elements and accumulate their values using reduce
+   2) I used Math.min and Math.max and basic algebra to calculate the averages properly
+   ## Solution and Reflection
+   #### ROADBLOCK RESOLUTION (RESOLVED/NOT RESOVLED)
+
+  # 5) Display Cube State After Scramble
+   ## Intended Behavior/Implementation
    ## 🛑 Roadblock
    ## 💡 Proposed Solution
    ## Solution and Reflection
