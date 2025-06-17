@@ -47,6 +47,11 @@ function StatsBar() {
         return avg.toFixed(2);
     }
 
+    function deleteTime(index) {
+    const newArr = solveArray.filter((_, i) => i !== index);
+    setSolveArray(newArr);
+    }
+
     useEffect(() => {
         setAverageOf3(calculateAvg3(solveArray));
         setAverageOf5(calculateAvg5(solveArray));
@@ -60,13 +65,43 @@ function StatsBar() {
     <div className="stats-bar-container"
         style={{
             transition: "height 0.2s ease-in",
-            height: isExtended ? "500px" : "200px",}}>
+            height: isExtended ? "500px" : "200px",
+        }}>
         <div className="main-stats">
-            <p className="ao3">ao3: {averageOf3}</p>
-            <p className="ao5">ao5: {averageOf5}</p>
-            <p className="ao12">ao12: {averageOf12}</p>
-            <p className="pb">best: {formatMin}</p>
+            <p className="ao3">
+                <span>Ao3: </span>
+                <span>{averageOf3}</span>
+            </p>
+            <p className="ao5">
+                <span>Ao5: </span>
+                <span>{averageOf5}</span>
+            </p>
+            <p className="ao12">
+                <span>Ao12: </span>
+                <span>{averageOf12}</span>
+            </p>
+            <p className="pb">
+                <span>Best:  </span>
+                <span>{formatMin}</span>
+            </p>
         </div>
+        {isExtended && (
+            <div className="solves-list">
+                {solveArray.length === 0 ? (
+                    <p className="no-solves">No solves yet.</p>
+                ) : (
+                    solveArray.map((solve, idx) => (
+                        <div className="solve-item" key={idx}>
+                            <span>{idx + 1}.</span>
+                            <span style={{width: '30px'}}>{solve.toFixed(2)}s</span>
+                            <span>
+                                <button className="delete-button" onClick={() => deleteTime(idx)}>🗑️</button>
+                            </span>
+                        </div>
+                    ))
+                )}
+            </div>
+        )}
         <button 
             className='extend-button' 
             onClick={() => setIsExtended((prev) => !prev)}

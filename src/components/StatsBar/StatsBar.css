@@ -1,4 +1,3 @@
-
 .stats-bar-container {
     border: 4px solid #f8f9fa;
     border-radius: 10px;
@@ -13,6 +12,7 @@
     align-items: center;
     justify-content: space-between;
     transition: box-shadow .2s ease-in;
+    overflow: hidden;
 }
 
 .stats-bar-container:hover {
@@ -43,9 +43,61 @@
 .main-stats {
     height: 150px;
     width: 250px;
+}
+
+p {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     border: solid;
     border-top: none;
     border-right: none;
     border-left: none;
-    
+}
+
+.solves-list {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  justify-content: start;
+  align-items: start;
+  margin-top: 16px;
+  max-height: 220px;
+  overflow-y: auto;
+  background: rgba(0,0,0,0.05);
+  border-radius: 6px;
+  padding: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: 5px;
+}
+
+.solves-list::-webkit-scrollbar {
+  display: none;
+}
+
+.solve-item {
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    justify-content: space-around;
+    width: 250px;
+    border-bottom: solid;
+}
+
+.delete-button {
+    border: none;
+    border-radius: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color .1s ease-in;
+
+}
+
+.delete-button:hover {
+    background-color: rgba(220, 220, 220, 0.321);
+}
+
+.delete-button:active {
+    transform: scale(1.1);
 }
