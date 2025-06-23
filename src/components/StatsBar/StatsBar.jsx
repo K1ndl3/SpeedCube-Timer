@@ -95,7 +95,7 @@ function StatsBar() {
                             <span>{idx + 1}.</span>
                             <span style={{width: '30px'}}>{solve.toFixed(2)}s</span>
                             <span>
-                                <button className="delete-button" onClick={() => deleteTime(idx)}>🗑️</button>
+                                <button className="delete-button" onClick={() => deleteTime(idx)}>❌</button>
                             </span>
                         </div>
                     ))

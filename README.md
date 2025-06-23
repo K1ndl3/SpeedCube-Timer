@@ -1,12 +1,61 @@
-# React + Vite
+# Speedcube Timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Overview
+A web-based speedcubing timer inspired by CSTimer with the following features:
 
-Currently, two official plugins are available:
+## Core Functionalities
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 🎯 WCA-Compliant Scramble Generator
 
-## Expanding the ESLint configuration
+Our scramble generation feature follows the **WCA (World Cube Association) guidelines** for random-state scrambling, ensuring fair and competition-grade practice conditions.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Implements **random-state** scrambles as used in official competitions.
+- Avoids redundant or repeated face moves.
+- Generates valid cube states using [`cubejs`](https://github.com/ldez/cubejs), which adheres to WCA scramble logic.
+- Scramble notation uses official face turns: `U`, `D`, `L`, `R`, `F`, `B` with modifiers (`'`, `2`).
+
+> This design is inspired by the **TNoodle** scrambling engine used in official WCA competitions.
+
+🔗 [WCA Scramble Regulations](https://www.worldcubeassociation.org/regulations/#scrambling)
+ 
+# Timer Functionality
+
+The timer is designed for **accurate and responsive cube timing**, inspired by tools like CSTimer. It supports standard cubing workflows and aligns with expectations for competition-style practice.
+
+- Starts and stops using the spacebar, mimicking physical stackmat behavior.
+- Supports **15-second inspection mode** with automatic countdown.
+- Provides real-time display of solve time in milliseconds.
+- Optimized for low-latency key events to ensure timing precision.
+
+This feature ensures a **realistic and consistent timing experience** for speedcubers training for WCA competitions.
+
+# Solve History
+
+The solve history feature automatically records each solve, providing a detailed log for performance tracking and analysis.
+
+- Displays a list of all recorded solve times in chronological order.
+- Includes metadata such as inspection penalties (+2) or DNFs (Did Not Finish).
+- Automatically calculates key statistics like average of 5 (ao5) and average of 12 (ao12).
+- Allows users to clear history or export solve data for review.
+
+This feature helps speedcubers identify trends, monitor progress, and improve through consistent feedback.
+
+
+## 🚀 Features
+- Random scramble generation (3x3)
+- Timer with inspection mode
+- Solve history with average calculations
+
+## 🛠️ Tech Stack
+React, HTML/CSS, cubejs for scrambles
+
+## 📦 Getting Started
+1. Clone the repo
+2. Run `npm install`
+3. Run `npm run dev`
+
+## 🤝 Contributing
+
+
+## 📜 License
+MIT
