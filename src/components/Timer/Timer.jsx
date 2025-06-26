@@ -14,9 +14,21 @@ function Timer() {
   const intervalRef = useRef(null);
   const holdTimeout = useRef(null);
   const isHoldValid = useRef(false);
+  const keyPressed = useRef(false); // Track if "A" key is held down
   ////////////////////////////////////////////////////// CONTEXT //////////////////////
   const [solveArray, setSolveArray] = useContext(SolveContext);
   ////////////////////////////////////////////////////// FUNCTIONS ////////////////////
+
+  const deleteLastTime = () => {
+    setSolveArray(prev => {
+      const newArr = [...prev];
+      newArr.pop();
+      return newArr;
+    });
+  };
+
+  ////////////////////////////////////////////////////// EFFECTS //////////////////////
+
   useEffect(() => {
     const scrambo = new Scrambo();
     setRandScramble(scrambo.type('333').get()[0]);
@@ -24,6 +36,13 @@ function Timer() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (e.code === 'KeyA') {
+        if (!keyPressed.current) {
+          deleteLastTime();
+          keyPressed.current = true;
+        }
+      }
+
       if (e.code === 'Space' && !isRunning && timerState === 'idle') {
         setTimerState('holding');
         isHoldValid.current = false;
@@ -57,6 +76,10 @@ function Timer() {
         clearTimeout(holdTimeout.current);
       }
 
+      if (e.code === 'KeyA') {
+        keyPressed.current = false; // Reset keyPressed when "A" is released
+      }
+
       if (timerState === 'stopped' && e.code === 'Space') {
         setSolveArray((prev) => [...prev, elapsedTime / 1000]);
       }
@@ -82,7 +105,7 @@ function Timer() {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
-  }, [timerState, isRunning]);
+  }, [timerState, isRunning, elapsedTime, setSolveArray]);
 
   useEffect(() => {
     if (isRunning) {
@@ -96,6 +119,7 @@ function Timer() {
     return () => clearInterval(intervalRef.current);
   }, [isRunning]);
 
+  ////////////////////////////////////////////////////// HTML ////////////////////
   const seconds = String(Math.floor((elapsedTime % 60000) / 1000)).padStart(2, '0');
   const centiseconds = String(Math.floor((elapsedTime % 1000) / 10)).padStart(2, '0');
 
@@ -106,7 +130,6 @@ function Timer() {
   if (timerState === 'running') color = 'green';
   if (timerState === 'stopped') color = 'white';
 
-  ////////////////////////////////////////////////////// HTML ////////////////////
   return (
     <div className="timer-wrapper">
       <div className="timer-container" style={{ color }}>

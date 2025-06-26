@@ -204,15 +204,15 @@ The implementation was done with help from **ChatGPT**, but I will try to **redo
 # 7) Tab and Then Enter To Delete The Last Solve
 
 ## Intended Behavior/Implementation
-When hitting **Tab** and then **Enter**, the user will be able to delete their last solve. This acts as a shortcut to deleting.
+When hitting **a**, the user will be able to delete their last solve. This acts as a shortcut to deleting.
 
 ## 🛑 Roadblock
-I did not know how to influence the tabbing behavior using React.
+1) the useEffect hooks fire repeatedly in a keydown event causing multiple deletes with one keystroke
 
 ## 💡 Proposed Solution
-I learned that using `tabIndex={0}` will force the element to be included in the tabbing order.
+1) using a guard that will only delete on the first instance of the keydown event
 
 ## Solution and Reflection
 One of the behaviors that I wished existed in other timers is now a reality. It is so cool to be able to create what I wanted for so long.
 
-#### ROADBLOCK RESOLUTION (RESOLVED/NOT RESOVLED)
+#### **ROADBLOCK RESOLUTION (RESOLVED)** 🟣✔️
