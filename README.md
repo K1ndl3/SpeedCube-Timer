@@ -1,6 +1,7 @@
 # Speedcube Timer
 
 ## 📌 Overview
+
 A web-based speedcubing timer inspired by CSTimer with the following features:
 
 ## Core Functionalities
@@ -17,7 +18,7 @@ Our scramble generation feature follows the **WCA (World Cube Association) guide
 > This design is inspired by the **TNoodle** scrambling engine used in official WCA competitions.
 
 🔗 [WCA Scramble Regulations](https://www.worldcubeassociation.org/regulations/#scrambling)
- 
+
 # Timer Functionality
 
 The timer is designed for **accurate and responsive cube timing**, inspired by tools like CSTimer. It supports standard cubing workflows and aligns with expectations for competition-style practice.
@@ -40,22 +41,26 @@ The solve history feature automatically records each solve, providing a detailed
 
 This feature helps speedcubers identify trends, monitor progress, and improve through consistent feedback.
 
-
 ## 🚀 Features
+
 - Random scramble generation (3x3)
 - Timer with inspection mode
 - Solve history with average calculations
 
 ## 🛠️ Tech Stack
+
 React, HTML/CSS, cubejs for scrambles
 
 ## 📦 Getting Started
+
 1. Clone the repo
 2. Run `npm install`
 3. Run `npm run dev`
 
 ## 🤝 Contributing
 
-
 ## 📜 License
+
 MIT
+
+![SpeedCube Timer](assets/cuber-timer.png)

@@ -215,4 +215,4 @@ When hitting **a**, the user will be able to delete their last solve. This acts 
 ## Solution and Reflection
 One of the behaviors that I wished existed in other timers is now a reality. It is so cool to be able to create what I wanted for so long.
 
-#### **ROADBLOCK RESOLUTION (RESOLVED)** 🟣✔️
+#### **ROADBLOCK RESOLUTION (NOT RESOLVED)**
